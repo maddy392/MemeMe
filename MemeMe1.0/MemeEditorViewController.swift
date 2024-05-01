@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
 UITextFieldDelegate {
     
     // MARK: All outlets
@@ -21,24 +21,25 @@ UITextFieldDelegate {
     
     // MARK: Meme attributes
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.font : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1),
+        NSAttributedString.Key.font : UIFont(name: "impact", size: 40)!,
+        NSAttributedString.Key.strokeColor: UIColor.black ,
         NSAttributedString.Key.strokeWidth: -4,
-        NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1.0)
+        NSAttributedString.Key.foregroundColor: UIColor.white
     ]
+    
+    func prepareTextField(textField: UITextField, defaultText: String) {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.text = defaultText
+    }
     
     // MARK: set delegate and textfield properties
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.topCommentTextField.defaultTextAttributes = memeTextAttributes
-        self.topCommentTextField.textAlignment = NSTextAlignment(.center)
-        self.topCommentTextField.borderStyle = .none
-        
-        self.bottomCommentTextField.defaultTextAttributes = memeTextAttributes
-        self.bottomCommentTextField.textAlignment = NSTextAlignment(.center)
-        self.bottomCommentTextField.borderStyle = .none
+        prepareTextField(textField: topCommentTextField, defaultText: "TOP")
+        prepareTextField(textField: bottomCommentTextField, defaultText: "BOTTOM")
 
         self.topCommentTextField.delegate = self
         self.bottomCommentTextField.delegate = self
@@ -48,12 +49,22 @@ UITextFieldDelegate {
     // MARK: disable/hide share button
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+    // MARK: Disable camera button if its a simulator
+    #if targetEnvironment(simulator)
+        cameraButton.isEnabled = false
+    #else
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+    #endif
+        
+    // MARK: Disable share button if no image is selected yet
         if displayImage.image != nil {
             shareButton.isEnabled = true
         } else {
             shareButton.isEnabled = false
         }
+        
+    // subscribe to keyboard notifications
         subscribeToKeyboardNotifications()
     }
     
@@ -143,13 +154,6 @@ UITextFieldDelegate {
         shareButton.isEnabled = true
     }
     
-    
-    struct Meme {
-        var topText: String?
-        var bottomText: String?
-        var originalImage: UIImage?
-        var memedImage: UIImage
-    }
     
     func generateMemedImage() -> UIImage {
         

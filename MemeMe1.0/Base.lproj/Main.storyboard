@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MemeEditorViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MemeEditorViewController" id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VkD-l8-Ala">
-                                <rect key="frame" x="16" y="79" width="361" height="670"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZ1-4J-2sM">
                                 <rect key="frame" x="16" y="769" width="361" height="44"/>
@@ -39,13 +39,17 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D4D-We-rSb" userLabel="Top Meme Comment">
-                                <rect key="frame" x="44" y="129" width="305" height="27.666666666666657"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D4D-We-rSb" userLabel="Top Meme Comment">
+                                <rect key="frame" x="28" y="109" width="337" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qEy-ZI-iHO" userLabel="Bottom Meme Comment">
-                                <rect key="frame" x="44" y="665" width="305" height="34"/>
+                                <rect key="frame" x="28" y="685" width="337" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
@@ -58,17 +62,17 @@
                             <constraint firstItem="VkD-l8-Ala" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EDY-HS-mG6"/>
                             <constraint firstItem="D4D-We-rSb" firstAttribute="leading" secondItem="VkD-l8-Ala" secondAttribute="leadingMargin" constant="20" id="FVB-hI-sOs"/>
                             <constraint firstItem="qEy-ZI-iHO" firstAttribute="leading" secondItem="D4D-We-rSb" secondAttribute="leading" id="J1F-DL-ns5"/>
-                            <constraint firstItem="VkD-l8-Ala" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Keb-ic-XAM"/>
+                            <constraint firstItem="VkD-l8-Ala" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="Keb-ic-XAM"/>
                             <constraint firstItem="qEy-ZI-iHO" firstAttribute="bottom" secondItem="VkD-l8-Ala" secondAttribute="bottom" constant="-50" id="MWo-Sp-eET"/>
-                            <constraint firstItem="VkD-l8-Ala" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Yjf-R8-4te"/>
+                            <constraint firstItem="VkD-l8-Ala" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Yjf-R8-4te"/>
                             <constraint firstItem="qEy-ZI-iHO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="bbc-xE-XKN"/>
                             <constraint firstItem="qEy-ZI-iHO" firstAttribute="trailing" secondItem="D4D-We-rSb" secondAttribute="trailing" id="hH8-lx-oHt"/>
-                            <constraint firstItem="KZ1-4J-2sM" firstAttribute="top" secondItem="VkD-l8-Ala" secondAttribute="bottom" constant="20" id="hph-eO-wza"/>
+                            <constraint firstItem="KZ1-4J-2sM" firstAttribute="top" secondItem="VkD-l8-Ala" secondAttribute="bottom" id="hph-eO-wza"/>
                             <constraint firstItem="D4D-We-rSb" firstAttribute="top" secondItem="VkD-l8-Ala" secondAttribute="top" constant="50" id="mfs-uk-tGe"/>
                             <constraint firstItem="KZ1-4J-2sM" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" constant="-5" id="nyI-Np-8iG"/>
                             <constraint firstItem="KZ1-4J-2sM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="og6-ol-m0w"/>
                             <constraint firstItem="KZ1-4J-2sM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rFR-cj-dil"/>
-                            <constraint firstItem="VkD-l8-Ala" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rqd-d0-kxL"/>
+                            <constraint firstItem="VkD-l8-Ala" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rqd-d0-kxL"/>
                             <constraint firstItem="KZ1-4J-2sM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="zTp-Nl-G4x"/>
                         </constraints>
                     </view>
