@@ -13,6 +13,7 @@ class MemeDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.memeImage!.image = meme.memedImage
+        self.navigationItem.title = "Meme Detail"
 
         // Do any additional setup after loading the view.
     }

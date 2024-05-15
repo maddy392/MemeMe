@@ -15,7 +15,6 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         return appDelegate.memes
     }
     
-    
     @IBOutlet var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,32 +25,15 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
-        
-//        if memes.isEmpty == false {
-//            return memes.count
-//        }
-//        else {
-//            return 4
-//        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableViewCell") as! MemeTableViewCell
-        
-//        if memes.isEmpty == false {
             let meme = memes[(indexPath as NSIndexPath).row]
-            
             cell.memeImage?.image = meme.memedImage
             cell.memeText?.text = meme.topText! + " " + meme.bottomText!
-//        }
-//        else {
-//            cell.memeText?.text = "testing"
-//            cell.memeImage?.image = UIImage(named: "Silva")
-//        }
         
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -59,15 +41,19 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let memeDetailViewController = storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
-        
         let meme = memes[(indexPath as NSIndexPath).row]
-        
         memeDetailViewController.meme = meme
-        
         navigationController!.pushViewController(memeDetailViewController, animated: true)
-//        self.present(memeDetailViewController, animated: true, completion: nil)
     }
     
+    // MARK: Swipe to Delete functionality
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.memes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
