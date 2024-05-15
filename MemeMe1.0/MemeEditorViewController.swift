@@ -174,30 +174,46 @@ UITextFieldDelegate {
     
     func save(_ memedImage: UIImage) {
         
-        let originalImage = displayImage.image
+        let originalImage = displayImage.image!
         let topText = topCommentTextField.text!
         let bottomText = bottomCommentTextField.text!
 
-        let _ = Meme(topText: topText, bottomText: bottomText, originalImage: originalImage,memedImage: memedImage)
+        let meme = Meme(topText: topText, bottomText: bottomText, originalImage: originalImage, memedImage: memedImage)
+        
+        // Add it to the memes array on the Application Delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
+        print("Appended meme")
+        print(appDelegate.memes)
+//        print(memes)
         
     }
     
     @IBAction func shareImage(_ sender: Any) {
         
-        let memedImage = generateMemedImage()
-        
+        let memedImage: UIImage = generateMemedImage()
+//        let content = "this is the content i want to share"
+//        print(type(of: memedImage))
         let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        
         self.present(controller, animated: true, completion: nil)
         
-        controller.completionWithItemsHandler = { (_, completed, _, _) in
+        controller.completionWithItemsHandler = {(_, completed, _, _) in
                 
             if (completed) {
+                print("Activity view controller completed")
                 self.save(memedImage)
+                controller.dismiss(animated: true)
+                self.dismiss(animated: true, completion: nil)
             }
         }
         
     }
+    
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 }
 
