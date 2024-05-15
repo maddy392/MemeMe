@@ -206,17 +206,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bNi-18-lhI">
-                                <rect key="frame" x="16" y="165" width="361" height="522"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bNi-18-lhI">
+                                <rect key="frame" x="16" y="59" width="361" height="759"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k5b-XN-QRU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bNi-18-lhI" firstAttribute="centerY" secondItem="bxi-tK-3H9" secondAttribute="centerY" id="VI4-mq-78d"/>
+                            <constraint firstItem="bNi-18-lhI" firstAttribute="centerY" secondItem="bxi-tK-3H9" secondAttribute="centerY" constant="12.5" id="VI4-mq-78d"/>
                             <constraint firstItem="bNi-18-lhI" firstAttribute="leading" secondItem="bxi-tK-3H9" secondAttribute="leadingMargin" id="eDr-bA-09a"/>
                             <constraint firstItem="bNi-18-lhI" firstAttribute="centerX" secondItem="bxi-tK-3H9" secondAttribute="centerX" id="i3k-eV-vyQ"/>
-                            <constraint firstItem="bNi-18-lhI" firstAttribute="top" secondItem="k5b-XN-QRU" secondAttribute="top" constant="106" id="wwT-5d-Rvj"/>
+                            <constraint firstItem="bNi-18-lhI" firstAttribute="top" secondItem="k5b-XN-QRU" secondAttribute="top" id="wwT-5d-Rvj"/>
                         </constraints>
                     </view>
                     <connections>
